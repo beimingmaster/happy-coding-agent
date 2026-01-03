@@ -2,6 +2,31 @@
 
 A collection of Claude Code skills, commands, and agents for rapid product development.
 
+## Quick Start
+
+Deploy to any git project with one command:
+
+```bash
+# Install the CLI tool
+curl -fsSL https://raw.githubusercontent.com/notedit/happy-coding-agent/main/install.sh | bash
+
+# Or via pip
+pip install git+https://github.com/notedit/happy-coding-agent.git
+
+# Initialize in your project
+cd your-project
+hca init
+```
+
+### CLI Commands
+
+| Command | Description |
+|---------|-------------|
+| `hca init` | Deploy .claude configurations to current project |
+| `hca init --select` | Interactively select components to deploy |
+| `hca update` | Update configurations from source repository |
+| `hca status` | Show deployment status and version info |
+
 ## Commands
 
 | Command | Description |
@@ -50,6 +75,10 @@ A collection of Claude Code skills, commands, and agents for rapid product devel
 ## Project Structure
 
 ```
+cli/                                     # CLI tool (hca command)
+│   ├── main.py                          # Entry point
+│   ├── commands/                        # CLI commands
+│   └── core/                            # Core logic
 .claude/
 ├── agents/                              # Custom agents
 │   ├── code-architect.md
