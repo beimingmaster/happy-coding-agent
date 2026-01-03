@@ -31,6 +31,13 @@ A collection of Claude Code skills, commands, and agents for rapid product devel
 | `screenshot-synthesizer` | Synthesizes analysis results into unified feature list and task breakdown |
 | `screenshot-reviewer` | Reviews task lists for completeness, consistency, and quality |
 
+### Testing Agents
+
+| Agent | Description |
+|-------|-------------|
+| `test-generator` | Analyzes code changes and generates comprehensive test cases by understanding existing test patterns and conventions |
+| `test-runner` | Executes tests, analyzes results, identifies failures, diagnoses root causes, and provides actionable fixes |
+
 ## Skills
 
 | Skill | Description |
@@ -52,7 +59,9 @@ A collection of Claude Code skills, commands, and agents for rapid product devel
 │   ├── screenshot-interaction-analyzer.md
 │   ├── screenshot-business-analyzer.md
 │   ├── screenshot-synthesizer.md
-│   └── screenshot-reviewer.md
+│   ├── screenshot-reviewer.md
+│   ├── test-generator.md
+│   └── test-runner.md
 ├── commands/                            # Slash commands
 │   ├── feature-analyzer.md
 │   ├── feature-pipeline.md
