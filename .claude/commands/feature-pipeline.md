@@ -17,7 +17,7 @@ If empty or unclear, ask user for the design file path.
 ## Phase 1: Initialize
 
 1. Read the design file
-2. Run `python3 .claude/skills/feature-pipeline/scripts/task_manager.py status --file <design.md>` to show current progress
+2. Run `python3 .claude/skills/task-execution-engine/scripts/task_manager.py status --file <design.md>` to show current progress
 3. If all tasks completed, report and exit
 4. Otherwise, proceed to execution
 
@@ -71,11 +71,11 @@ LOOP:
 
 ```bash
 # Mark task completed (updates checkbox to [x] ✅)
-python3 .claude/skills/feature-pipeline/scripts/task_manager.py done \
+python3 .claude/skills/task-execution-engine/scripts/task_manager.py done \
   --file <design.md> --task "Task Title"
 
 # Mark task failed (updates checkbox to [x] ❌ with reason)
-python3 .claude/skills/feature-pipeline/scripts/task_manager.py fail \
+python3 .claude/skills/task-execution-engine/scripts/task_manager.py fail \
   --file <design.md> --task "Task Title" --reason "Error description"
 ```
 

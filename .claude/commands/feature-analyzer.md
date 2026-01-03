@@ -22,4 +22,4 @@ Initial request: $ARGUMENTS
 
 ## Phase 2: Run with Feature Analyzer Skill
 
-Use the Skill tool to invoke the "feature-analyzer" skill and follow its complete process.
+Use the Skill tool to invoke the "feature-design-assistant" skill and follow its complete process.

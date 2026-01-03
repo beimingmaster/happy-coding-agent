@@ -1,5 +1,5 @@
 ---
-name: feature-analyzer
+name: feature-design-assistant
 description: "Turn ideas into fully formed designs and specs through natural collaborative dialogue. Use when planning new features, designing architecture, or making significant changes to the codebase."
 ---
 
@@ -7,7 +7,7 @@ description: "Turn ideas into fully formed designs and specs through natural col
 
 Help turn ideas into fully formed designs and specs through natural collaborative dialogue. Start by understanding the current project context, then ask questions one at a time to refine the idea. Once you understand what you're building, present the design in small sections (200-300 words), checking after each section whether it looks right so far.
 
-**Announce at start:** "I'm using the feature-analyzer skill to design this feature." 
+**Announce at start:** "I'm using the feature-design-assistant skill to design this feature." 
 
 ## The Process
 

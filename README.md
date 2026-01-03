@@ -35,10 +35,10 @@ A collection of Claude Code skills, commands, and agents for rapid product devel
 
 | Skill | Description |
 |-------|-------------|
-| `feature-analyzer` | Feature design through incremental Q&A and validation |
-| `feature-pipeline` | Execute implementation tasks from design documents |
-| `screenshot-analyzer` | Multi-agent pipeline for extracting features from UI screenshots and generating task lists |
-| `skill-creator` | Guide for creating new skills |
+| `feature-design-assistant` | 功能设计助手 - Feature design through incremental Q&A and validation |
+| `task-execution-engine` | 任务执行引擎 - Execute implementation tasks from design documents |
+| `screenshot-feature-extractor` | 截图特征提取器 - Multi-agent pipeline for extracting features from UI screenshots and generating task lists |
+| `skill-creation-guide` | 技能创建指南 - Guide for creating new skills |
 
 ## Project Structure
 
@@ -59,10 +59,10 @@ A collection of Claude Code skills, commands, and agents for rapid product devel
 │   ├── screenshot-analyzer.md
 │   └── feature-dev.md
 └── skills/                              # Reusable skills
-    ├── feature-analyzer/
-    ├── feature-pipeline/
-    ├── screenshot-analyzer/
-    └── skill-creator/
+    ├── feature-design-assistant/
+    ├── task-execution-engine/
+    ├── screenshot-feature-extractor/
+    └── skill-creation-guide/
 ```
 
 ## Screenshot Analysis Architecture
