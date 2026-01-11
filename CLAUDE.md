@@ -59,6 +59,7 @@ happy-coding-agent/
 
 ## Rules
 
-- When updating commands, agents, or skills, sync to README.md
+- When updating commands, agents, or skills, sync to both `README.md` and `README_CN.md`
+- Always update both README files together to keep them in sync
 - Use AskUserQuestion for structured information gathering in skills
 - `/feature-analyzer` generates design docs, `/feature-pipeline` executes them
