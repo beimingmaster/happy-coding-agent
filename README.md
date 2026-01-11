@@ -55,6 +55,18 @@ Add `.claude/settings.json` to your project for automatic team installation:
 | `/screenshot-analyzer` | Analyze product screenshots to extract features and generate task lists |
 | `/feature-dev` | Guided feature development with codebase understanding and architecture focus |
 
+### Git Commands
+
+| Command | Description |
+|---------|-------------|
+| `/git:commit` | Commit changes with auto-generated semantic commit message (Conventional Commits) |
+| `/git:pr` | Complete workflow: commit, push, and create Pull Request |
+| `/git:branch` | Create a new branch with conventional naming (supports Chinese input) |
+| `/git:changes` | Describe uncommitted changes in human-readable Chinese format |
+| `/git:worktree-add` | Create a new worktree with .env files copied |
+| `/git:worktree-merge` | Merge changes from a worktree branch into current branch |
+| `/git:worktree-remove` | Remove a worktree and optionally delete the branch |
+
 ### Example
 
 ```bash
@@ -120,7 +132,15 @@ happy-coding-agent/
 │   ├── feature-analyzer.md
 │   ├── feature-pipeline.md
 │   ├── feature-dev.md
-│   └── screenshot-analyzer.md
+│   ├── screenshot-analyzer.md
+│   └── git/                     # Git operations
+│       ├── commit.md
+│       ├── pr.md
+│       ├── branch.md
+│       ├── changes.md
+│       ├── worktree-add.md
+│       ├── worktree-merge.md
+│       └── worktree-remove.md
 │
 ├── agents/                      # Sub-agents
 │   ├── code-architect.md
