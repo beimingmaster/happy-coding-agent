@@ -1,12 +1,149 @@
 ---
 description: "Remove a git worktree and optionally delete the branch"
-argument-hint: Worktree path or branch name (e.g., "../my-project-feature" or "feature/login")
+argument-hint: Worktree path or branch name, or "--merged" for batch cleanup, or "--prune" for stale cleanup
 allowed-tools: Bash, Read, TodoWrite, AskUserQuestion
 ---
 
 # Git Worktree Remove
 
 Safely remove a worktree and clean up associated resources.
+
+## Mode Detection
+
+**Parse `$ARGUMENTS`**:
+| Argument | Mode |
+|----------|------|
+| `--merged` | Batch remove all merged worktrees |
+| `--prune` | Auto-detect and clean stale worktrees |
+| `--all` | Interactive batch removal |
+| path/branch | Single worktree removal |
+| (empty) | Interactive selection |
+
+---
+
+## Mode: Stale Cleanup (`--prune`)
+
+### Step 1: Detect Stale Worktrees
+
+```bash
+# Get all registered worktree paths
+git worktree list --porcelain | grep "^worktree" | cut -d' ' -f2-
+```
+
+**For each path, check**:
+```bash
+[ -d "<path>" ] && echo "exists" || echo "stale"
+```
+
+### Step 2: Show Stale Worktrees
+
+**If stale found**:
+```
+发现 N 个 stale worktree（目录已不存在）：
+- /path/to/deleted-worktree-1
+- /path/to/deleted-worktree-2
+```
+
+**If none found**:
+```
+没有发现 stale worktree，所有 worktree 目录都存在。
+```
+
+### Step 3: Prune
+
+**Ask user to confirm**, then:
+```bash
+git worktree prune -v
+```
+
+**Show result**: List of pruned entries.
+
+---
+
+## Mode: Batch Merged Cleanup (`--merged`)
+
+### Step 1: Find Merged Worktrees
+
+```bash
+# Get merged branches
+git branch --merged main | grep -v "main\|master\|\*"
+```
+
+**Cross-reference with worktrees**:
+```bash
+git worktree list --porcelain
+```
+
+**Build list**: Worktrees whose branches are already merged to main.
+
+### Step 2: Show Candidates
+
+```
+发现 N 个已合并的 worktree 可以清理：
+┌─────────────────────────────────┬──────────────────┬────────────────┐
+│ Path                            │ Branch           │ Merged To      │
+├─────────────────────────────────┼──────────────────┼────────────────┤
+│ ../project-feature-a            │ feature/a        │ main           │
+│ ../project-bugfix-123           │ bugfix/123       │ main           │
+└─────────────────────────────────┴──────────────────┴────────────────┘
+```
+
+### Step 3: Confirm Batch Removal
+
+**Ask user**:
+- Remove all? (Y/n)
+- Also delete branches? (Y/n)
+- Also delete remote branches? (y/N)
+
+### Step 4: Execute Batch Removal
+
+**For each worktree**:
+```bash
+git worktree remove <path>
+git branch -d <branch>  # if user confirmed
+git push origin --delete <branch>  # if user confirmed
+```
+
+**Show progress**: `[1/N] 移除 feature/a ...`
+
+### Step 5: Final Cleanup
+
+```bash
+git worktree prune
+git fetch --prune  # if remote branches deleted
+```
+
+---
+
+## Mode: Interactive Batch (`--all`)
+
+### Step 1: List All Worktrees with Status
+
+Show table with checkboxes:
+```
+选择要删除的 worktree：
+[ ] ../project-feature-a     feature/a     dirty   (3 uncommitted)
+[x] ../project-bugfix-123    bugfix/123    clean   (merged)
+[ ] ../project-experiment    experiment    clean   (not merged)
+```
+
+### Step 2: User Selection
+
+Ask user to select worktrees to remove (comma-separated indices or "merged" for all merged).
+
+### Step 3: Safety Checks
+
+**For each selected**:
+- If dirty: warn and require explicit confirm
+- If not merged: warn and require explicit confirm
+
+### Step 4: Execute
+
+Same as batch removal with progress indicator.
+
+---
+
+## Mode: Single Removal (Default)
 
 ## Phase 1: List Worktrees
 

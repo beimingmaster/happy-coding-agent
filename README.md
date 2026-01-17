@@ -62,8 +62,11 @@ cd your-project && hca init
 
 ```bash
 /git:worktree-add feature/api   # Create worktree + copy .env
+/git:worktree-list              # List all worktrees with status
 /git:worktree-merge             # Merge back to current branch
 /git:worktree-remove            # Cleanup worktree
+/git:worktree-remove --merged   # Batch remove merged worktrees
+/git:worktree-remove --prune    # Clean stale worktrees
 ```
 
 ### 5. Screenshot Analysis
@@ -92,8 +95,9 @@ cd your-project && hca init
 | `/git:branch` | Create branch with conventional naming |
 | `/git:changes` | Describe uncommitted changes |
 | `/git:worktree-add` | Create worktree with .env files copied |
+| `/git:worktree-list` | List all worktrees with detailed status |
 | `/git:worktree-merge` | Merge worktree branch into current |
-| `/git:worktree-remove` | Remove worktree and cleanup |
+| `/git:worktree-remove` | Remove worktree (supports --merged, --prune) |
 
 ## Components
 

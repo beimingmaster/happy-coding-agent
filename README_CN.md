@@ -62,8 +62,11 @@ cd your-project && hca init
 
 ```bash
 /git:worktree-add feature/api   # 创建 worktree + 复制 .env
+/git:worktree-list              # 列出所有 worktree 及状态
 /git:worktree-merge             # 合并回当前分支
 /git:worktree-remove            # 清理 worktree
+/git:worktree-remove --merged   # 批量删除已合并的 worktree
+/git:worktree-remove --prune    # 清理 stale worktree
 ```
 
 ### 5. Screenshot Analysis
@@ -92,8 +95,9 @@ cd your-project && hca init
 | `/git:branch` | Create branch with conventional naming |
 | `/git:changes` | Describe uncommitted changes |
 | `/git:worktree-add` | Create worktree with .env files copied |
+| `/git:worktree-list` | List all worktrees with detailed status |
 | `/git:worktree-merge` | Merge worktree branch into current |
-| `/git:worktree-remove` | Remove worktree and cleanup |
+| `/git:worktree-remove` | Remove worktree (supports --merged, --prune) |
 
 ## Components
 
