@@ -7,8 +7,11 @@
 ## Installation
 
 ```bash
-# Install directly in Claude Code
-/plugin install https://github.com/notedit/happy-coding-agent
+# Step 1: Add the marketplace
+/plugin marketplace add notedit/happy-coding-agent
+
+# Step 2: Install the plugin
+/plugin install happy-coding-agent@happy-coding-agent
 ```
 
 ### Alternative: CLI Tool
@@ -16,6 +19,16 @@
 ```bash
 pip install git+https://github.com/notedit/happy-coding-agent.git
 cd your-project && hca init
+```
+
+### Verify Installation
+
+```bash
+# Open plugin manager to confirm
+/plugin
+
+# Test a command
+/feature-dev add a simple feature
 ```
 
 ## Usage

@@ -4,18 +4,31 @@
 
 **用自然语言描述需求，自动生成设计文档并逐步实现代码。** 把"想法→设计→代码→提交"的完整开发流程自动化。
 
-## Installation
+## 安装
 
 ```bash
-# 在 Claude Code 中直接安装
-/plugin install https://github.com/notedit/happy-coding-agent
+# 第一步：添加 marketplace
+/plugin marketplace add notedit/happy-coding-agent
+
+# 第二步：安装插件
+/plugin install happy-coding-agent@happy-coding-agent
 ```
 
-### Alternative: CLI Tool
+### 备选方案：CLI 工具
 
 ```bash
 pip install git+https://github.com/notedit/happy-coding-agent.git
 cd your-project && hca init
+```
+
+### 验证安装
+
+```bash
+# 打开插件管理器确认
+/plugin
+
+# 测试命令
+/feature-dev 添加一个简单功能
 ```
 
 ## Usage
